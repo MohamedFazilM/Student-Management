@@ -1,4 +1,7 @@
 <?php
+include 'auth.php';
+requireAdmin(); // only admins can edit students
+
 include 'db.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -63,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     </a>
     <div class="topbar-right">
       <a href="index.php" class="btn btn-secondary">← Back to List</a>
+      <a href="logout.php" style="display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .85rem;background:rgba(255,77,109,0.1);border:1px solid rgba(255,77,109,0.2);border-radius:8px;color:#fb7185;font-size:.78rem;font-weight:600;text-decoration:none;">🚪 Logout</a>
     </div>
   </nav>
 

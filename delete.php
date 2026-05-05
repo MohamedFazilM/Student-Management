@@ -1,4 +1,7 @@
 <?php
+include 'auth.php';
+requireAdmin(); // only admins can delete students
+
 include 'db.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -9,4 +12,3 @@ if ($id > 0) {
 
 header("Location: index.php?deleted=1");
 exit;
-?>
